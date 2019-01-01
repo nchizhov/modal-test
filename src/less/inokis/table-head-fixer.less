@@ -1,0 +1,44 @@
+.inok-tbl-fixer {
+  border-collapse: separate;
+  border-width: 0 0 0 0;
+  margin-top: -2px !important;
+  margin-left: -2px !important;
+  margin-bottom: 0 !important;
+
+  > thead > tr {
+    > th {
+      border-width: 0 1px 1px 0;
+      border-bottom: 2px solid #dddddd !important;
+
+      &:last-child {
+        border-right-width: 0 !important;
+      }
+    }
+
+    &:first-child > th {
+      border-top: 2px solid #dddddd !important;
+
+      &:first-child {
+        border-left-width: 2px !important;
+      }
+    }
+  }
+
+  > tbody > tr {
+    > td {
+      border-width: 0 1px 1px 0;
+
+      &:first-child {
+        border-left-width: 2px !important;
+      }
+
+      &:last-child {
+        border-right-width: 0 !important;
+      }
+    }
+
+    &:last-child > td {
+      border-bottom-width: 0 !important;
+    }
+  }
+}

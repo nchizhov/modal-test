@@ -1,11 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container-fluid">
+<div class="container-fluid content">
   <br><br>
   <div class="row">
     <div class="col-sm-12">
-      <input type="button" class="bnt btn-default btn-xs" value="Confirm" (click)="onClick()">&nbsp;
-      <input type="button" class="bnt btn-default btn-xs" value="Alert" (click)="onClick2()">&nbsp;
-      <input type="button" class="bnt btn-default btn-xs" value="Modal" (click)="onClick3()">
+      <input type="button" class="btn btn-default btn-xs" value="Confirm" (click)="onClick()">&nbsp;
+      <input type="button" class="btn btn-default btn-xs" value="Alert" (click)="onClick2()">&nbsp;
+      <input type="button" class="btn btn-default btn-xs" value="Modal" (click)="onClick3()">
     </div>
   </div>
   <br><br>
@@ -13,8 +13,20 @@
     <div class="col-sm-6 col-sm-offset-3">
       <smooth-dnd-container (drop)="onDrop($event)" lockAxis="y" dragClass="drag">
         <smooth-dnd-draggable *ngFor="let item of items">
-          <div class="drag-item">
+          <div class="drag-item" *ngIf="!item.items">
             {{item.data}}
+          </div>
+          <div *ngIf="item.items">
+            <div class="inner-container">
+              <div class="inner-container-header">{{item.data}}</div>
+              <smooth-dnd-container (drop)="onInnerDrop(item, $event)">
+                <smooth-dnd-draggable *ngFor="let subitem of item.items">
+                  <div class="inner-container-body drag-item">
+                    {{subitem.data}}
+                  </div>
+                </smooth-dnd-draggable>
+              </smooth-dnd-container>
+            </div>
           </div>
         </smooth-dnd-draggable>
       </smooth-dnd-container>

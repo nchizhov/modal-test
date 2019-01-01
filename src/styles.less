@@ -1,8 +1,58 @@
 @import "less/bootstrap/bootstrap";
 @import "less/bootstrap/theme";
 @import "less/bootstrap/bootstrap-custom";
+@import "less/inokis/inokis";
 
 :active, :focus {
   outline:none !important;
 }
 
+/* Form title header */
+.form-title-header {
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.group-btns .btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.alert {
+  margin: 0 0 5px 0;
+  padding: 5px 10px;
+}
+
+/* Buttons with actions */
+.btn-actions {
+  vertical-align: middle;
+  padding: 2px !important;
+
+  button {
+    padding: 3px 5px !important;
+  }
+
+  .btn-blue:hover {
+    color: blue;
+  }
+  .btn-red:hover {
+    color: red;
+  }
+  .btn-green:hover {
+    color: green;
+  }
+}
+
+td.text-middle, th.text-middle {
+  vertical-align: middle !important;
+}
+
+.content {
+  min-width: 100%;
+  margin: 0 -15px;
+  padding: 9px 5px 10px 5px;
+  background-color: white;
+  border-bottom: 1px solid #aaa;
+  border-radius: 0 0 4px 4px;
+  font-family: Verdana,Arial,sans-serif;
+}

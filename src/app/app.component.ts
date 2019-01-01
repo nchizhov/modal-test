@@ -19,8 +19,19 @@ export class AppComponent {
 
   items = [{id: 1,
             data: 'TEST1'},
+           {id: 3,
+            data: 'INNER',
+            items: [{
+              id: 4,
+              data: 'INSIDE TEST 1'
+            }, {
+              id: 5,
+              data: 'INSIDE TEST 2'
+            }]},
            {id: 2,
             data: 'TEST2'}];
+
+  formattedItems: number[];
 
   constructor(private alertDialogService: AlertDialogService,
               private confirmDialogService: ConfirmDialogService,
@@ -45,6 +56,25 @@ export class AppComponent {
   onDrop(dropResult: IDropResult) {
     this.items = applyDrag(this.items, dropResult);
     console.log(this.items);
-    //console.log(applyDrag(this.items, dropResult));
+  }
+
+  onInnerDrop(item, dropResult: IDropResult) {
+    const newItems = [...this.items];
+    const index = newItems.indexOf(item);
+    newItems[index].items = applyDrag(newItems[index].items, dropResult);
+    this.items = newItems;
+    this.formatItems();
+  }
+
+  formatItems() {
+    this.formattedItems = [];
+    this.items.every(item => {
+      if (item.hasOwnProperty('items')) {
+        item.items.every(subitem => !!this.formattedItems.push(subitem.id));
+        return true;
+      }
+      return !!this.formattedItems.push(item.id);
+    });
+    console.log(this.formattedItems);
   }
 }
