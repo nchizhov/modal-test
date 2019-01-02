@@ -21,6 +21,7 @@
           <label for="groupShortName" class="col-sm-4 control-label">Обозначение</label>
           <div class="col-sm-8">
             <input type="text"
+                   placeholder="Тестовый холдер"
                    id="groupShortName"
                    class="form-control">
           </div>
@@ -47,6 +48,10 @@
           <label for="lSelect" class="col-sm-4 control-label">Выбор</label>
           <div class="col-sm-8">
             <ng-select [options]="selects"
+                       placeholder="Выберите сотрудников"
+                       highlightTextColor="#fff"
+                       highlightColor="#3875d7"
+                       [hideSelected]="true"
                        id="lSelect"
                        [multiple]="true"></ng-select>
           </div>

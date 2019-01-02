@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {BsModalRef} from 'ngx-bootstrap';
-import {IOption} from 'ng-select';
+import {IOption} from '@inok/ng-select';
 
 @Component({
   selector: 'app-dialog',
@@ -8,7 +8,9 @@ import {IOption} from 'ng-select';
 })
 export class DialogComponent {
   selects: IOption[] = [
-    {value: '1',
+    {value: '',
+     label: 'Empty'},
+    {value: 1,
      label: 'One'},
     {value: '2',
       label: 'Two'},
