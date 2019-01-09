@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AlertDialogService} from './alert-dialog/alert-dialog.service';
 import {ConfirmDialogService} from './confirm-dialog/confirm-dialog.service';
-import {BsModalService, ModalOptions} from 'ngx-bootstrap';
+import {BsDatepickerConfig, BsLocaleService, BsModalService, ModalOptions} from 'ngx-bootstrap';
 import {DialogComponent} from './dialog/dialog.component';
 import {IDropResult} from 'ngx-smooth-dnd';
 import {applyDrag} from './utils';
@@ -11,7 +11,13 @@ import {applyDrag} from './utils';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  bsConfig: Partial<BsDatepickerConfig> = {
+    containerClass: 'theme-default',
+    dateInputFormat: 'DD.MM.YYYY',
+    showWeekNumbers: false
+  };
+
   private dialogConfig: ModalOptions = {
     backdrop: 'static',
     keyboard: true
@@ -35,7 +41,13 @@ export class AppComponent {
 
   constructor(private alertDialogService: AlertDialogService,
               private confirmDialogService: ConfirmDialogService,
-              private modalService: BsModalService) {}
+              private modalService: BsModalService,
+              private localeService: BsLocaleService) {
+    this.localeService.use('ru');
+  }
+
+  ngOnInit(): void {
+  }
 
   onClick() {
     this.confirmDialogService.show('Вы точно видите это сообщение?').subscribe(

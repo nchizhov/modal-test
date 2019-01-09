@@ -10,6 +10,11 @@ import {ConfirmDialogModule} from './confirm-dialog/confirm-dialog.module';
 import {DialogComponent} from './dialog/dialog.component';
 import {DialogHeaderComponent} from './dialog-header/dialog-header.component';
 import {SelectModule} from '@inok/ng-select';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {defineLocale} from 'ngx-bootstrap/chronos';
+import {ruLocale} from 'ngx-bootstrap/locale';
+
+defineLocale('ru', ruLocale);
 
 @NgModule({
   declarations: [
@@ -23,6 +28,7 @@ import {SelectModule} from '@inok/ng-select';
     AlertDialogModule,
     ConfirmDialogModule,
     NgxSmoothDnDModule,
+    BsDatepickerModule.forRoot(),
     SelectModule
   ],
   providers: [],
@@ -31,4 +37,4 @@ import {SelectModule} from '@inok/ng-select';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
