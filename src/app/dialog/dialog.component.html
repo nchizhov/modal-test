@@ -53,7 +53,28 @@
                        highlightColor="#3875d7"
                        [hideSelected]="true"
                        id="lSelect"
-                       [multiple]="true"></ng-select>
+                       [multiple]="true"
+                       notFoundMsg="Ничего не найдено"></ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="form-group form-group-sm">
+          <label for="lSelect2" class="col-sm-4 control-label">Выбор2</label>
+          <div class="col-sm-8">
+            <ng-select [options]="selects"
+                       placeholder="Выберите сотрудников"
+                       highlightTextColor="#fff"
+                       highlightColor="#3875d7"
+                       [hideSelected]="true"
+                       id="lSelect2"
+                       [multiple]="false"
+                       [allowClear]="true"
+                       [noFilter]="5"
+                       notFoundMsg="Ничего не найдено"></ng-select>
           </div>
         </div>
       </div>
